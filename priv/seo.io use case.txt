@@ -1,0 +1,49 @@
+==Use Case 1==
+=BuenaCarta wants 20 sites=
+
+Actors:
+
+  BCO: BuenaCarta's owner
+  WRx: Writer x
+  EDx: Editor x
+  USR: An annonymous web user
+  SEO: SEO.io
+
+Story:
+
+  1.  BCO asks SEO to fill his 20 domains providing 200 keywords through SEO's **Client-UI**
+  2.  Given the keywords, SEO uses its **Topic Generator** to create plausible article topics for each domain
+  3.  SEO pushes new topics to its **Article Queue**
+  3.  SEO uses its **Mailer** to send a mail to every writer telling him about the new needed articles
+  4.  WR1 opens SEO's **Writer-UI** and chooses an article topic to write about
+  5.  WR1 uses SEO's **Article-Editor** to write (or just paste) his new article [he can save as many drafts as he want, close and reopen the browser without loosing his data]
+  6.  WR1 decides the article is done, and then submits it using SEO's **Writer-UI**
+  7.  SEO uses its **Mailer** to send a mail to every editor telling him about the new submitted article
+  8.  ED1 opens SEO's **Editor-UI** and chooses an article to check
+  9.  ED1 modifies the article using SEO's **Article-Editor** [again: saving, closing, reopening, etc... is allowed]
+  10. ED1 rejects the article and adds a reason for that on SEO's **Editor-UI**
+  11. SEO uses its **Mailer** to send a mail to WR1 telling him about the rejection of his article
+  12. WR1 opens SEO's **Writer-UI** and, using the **Article-Editor**, corrects the article.  Then he submits it again
+  13. SEO uses its **Mailer** to send a mail to every editor telling him about the new submitted article
+  14. ED1 opens the article in SEO's **Editor-UI** and publishes it
+  15. SEO enables the corresponding domain on its **DNS Server**
+  16. SEO uses its **Mailer** to send a mail to BCO telling him about the new published article
+  17. USR tries to reach the site using his browser
+  18. USR's browser queries SEO's **DNS Server** for the domain
+  19. SEO's **DNS Server** returns the ip of one of its **Web Servers**
+  20. USR's browser navigates to the given ip
+  21. SEO's **Web Server** formats the corresponding article and returns it to USR
+
+Notes:
+
+  1.  SEO should keep track of article history (with article status and contents)
+  2.  On step 13... is it OK to notify every editor or should only ED1 be notified?
+  3.  Of course, USR may also be Google Crawler
+  4.  We need a way to let BCO pay for SEO's services
+
+We may need:
+
+  - To give BCO a way to check the status of his domains (with some kind of stats or something)
+  - To generate stats or reports about the quality of WRx articles (We can even check how many people read them)
+  - To give USR a chance to add comments
+  - To let BCO (or WRx? or EDx?) choose themes/skins for the domains/articles

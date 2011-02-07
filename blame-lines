@@ -1,0 +1,2 @@
+#!/bin/sh
+find `git ls-files | grep -v $2` -exec git blame {} \; | grep $1 | wc -l
