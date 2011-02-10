@@ -16,3 +16,7 @@ conductor:get_message_count -> italkdb:get_message_count
 conductor_sup:start_conductor
 
 {global_messages, _, !!!, _}
+{episode_EXIT, _, !!!, _}
+{episode_start, _, !!!, _}
+{episode_end, _, !!!, _}
+{messages_total, _, !!!, _}
