@@ -1,25 +1,4 @@
-conductor:event_dispatcher
-          process_name
-          is_active
-          stop
-          check_status
-          add_twitter_message
-          add_pobox_message
-          get_status
-          is_active
-          stop
-
-conductor:get_message_count -> italkdb:get_message_count
-          get_max_position  -> italkdb:get_max_position
 %%TODO: Cache message counts and max positions on italkdb
-
-conductor_sup:start_conductor
-
-{global_messages, _, !!!, _}
-{episode_EXIT, _, !!!, _}
-{episode_start, _, !!!, _}
-{episode_end, _, !!!, _}
-{messages_total, _, !!!, _}
 
 FOR DOC, CLIENT and web_handler_tester:
   episodes/list:
