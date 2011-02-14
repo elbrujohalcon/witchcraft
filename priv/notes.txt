@@ -1,4 +1,3 @@
-%%TODO: Cache message counts and max positions on italkdb
 
 FOR DOC, CLIENT and web_handler_tester:
   episodes/list:
@@ -9,3 +8,7 @@ FOR DOC, CLIENT and web_handler_tester:
     changed results: "start_time"/"end_time" -> "schedules":[...]
   shows/list
     new parameter: uid [no uid means "default sched"]
+    
+%%TODO:
+  Update wiki
+  Cache message counts and max positions on italkdb
