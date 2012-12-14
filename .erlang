@@ -1,0 +1,10 @@
+UD = "/Users/elbrujohalcon/Projects/erlang/elbrujohalcon/witchcraft/user_default".
+io:format("COMPILE: ~p~n", [compile:file(UD ++ ".erl", [debug_info, report_errors, report_warnings, {outdir, filename:dirname(UD) ++ "/ebin"}])]).
+io:format("LOAD: ~p~n", [Result = code:load_abs(filename:dirname(UD) ++ "/ebin/user_default")]).
+case Result of
+  {error, not_purged} -> io:format("RELOAD: ~i~p~n", [code:purge(user_default), code:load_abs(UD)]);
+  {module, user_default} -> ok
+end.
+shell:history(9999).
+Modules = [M || {module, M} <- [code:load_file(list_to_atom(re:replace(filename:basename(F), "[.]beam$", "", [{return, list}]))) || P <- code:get_path(), string:str(P, code:lib_dir()) == 0, F <- filelib:wildcard(filename:join(P, "*.beam"))]].
+%io:format("Loaded Modules: ~p~n", [lists:sort(Modules)]).
