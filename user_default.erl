@@ -140,12 +140,6 @@ user_auth(User) ->
 	[{client_attributes, BinRes, _, _} | _] = tt_presence:connected_resources(User_Token),
 	sha2:hexdigest256(User_Token ++ ":" ++ binary_to_list(Xmpp_Pass) ++ ":" ++ binary_to_list(BinRes)).
 
-accounts() ->
-	lists:sort([{tt_redis:get(roster, <<"account:",T/binary,":username">>), T} || T <- tt_redis:smembers(roster, "consumer:account.tokens")]).
-
-accounts(Org) ->
-	lists:sort([{tt_redis:get(roster, <<"account:",T/binary,":username">>), T} || T <- tt_redis:smembers(roster, "organization:" ++ Org ++ ":account.tokens")]).
-
 r() ->
 	r("tigertext").
 

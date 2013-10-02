@@ -58,7 +58,7 @@ run() ->
 init(Name) -> {ok, #state{name = Name}}.
 
 handle_event(Event, State) ->
-  io:format("~p: Event received: ~p~n", [State#state.name, Event]),
+  io:format("~p: Event received: ~p~nLinks:\t ~p~n", [State#state.name, Event, erlang:process_info(self())]),
   {ok, State}.
 
 handle_call(Request, State) ->
