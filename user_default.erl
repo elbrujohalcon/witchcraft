@@ -1,7 +1,7 @@
 -module(user_default).
 -compile(export_all).
 
--include("/Users/elbrujohalcon/Projects/erlang/inaka/tigertext/xmpp/ttserver/apps/ttserver/include/mod_tt.hrl").
+%-include("/Users/elbrujohalcon/Projects/erlang/inaka/tigertext/xmpp/ttserver/apps/ttserver/include/mod_tt.hrl").
 
 -spec all_modules() -> module().
 all_modules() ->
@@ -145,14 +145,6 @@ r() ->
 
 r(Include) ->
 	"../../apps/ttserver/include/" ++ Include ++ ".hrl".
-
-new_org(Name, Key) ->
-	mod_tt_rest_organization:process("/",
-                                     #request{method = 'POST',
-                                              q = [{"name", Name},
-                                                   {"key", Key},
-                                                   {"ttl","9999999"},
-                                                   {"dor","0"}]}).
 
 t(Name) when is_atom(Name) -> t(atom_to_list(Name));
 t(Name) when is_list(Name) ->
