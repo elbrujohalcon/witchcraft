@@ -1,8 +1,8 @@
 -module(ufo).
 
--export([run/0, stop/0, actor_loop/1]).
+-export([run/0, start/0, stop/0, actor_loop/1]).
 
-run() ->
+start() ->
   {ok, E} =
     et_viewer:start(
       [ {title, "Aliens!"}
@@ -14,7 +14,9 @@ run() ->
   register(ufo, E),
   spawn_actors(),
   timer:sleep(1000),
-  register('UNKNOWN', self()),
+  register('UNKNOWN', self()).
+
+run() ->
   send_msg("UNKNOWN", hd(actors()), "any aliens yet?").
 
 stop() ->
