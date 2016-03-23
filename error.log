@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/elbrujohalcon/Projects/FromOthers/cuter/priv/cuter_interface.py", line 22, in <module>
+    cmd = cp.decode_command(erlport, erlz3, data)
+  File "/Users/elbrujohalcon/Projects/FromOthers/cuter/priv/cuter_port.py", line 38, in decode_command
+    cmd = json.loads(data)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+,

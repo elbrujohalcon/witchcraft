@@ -1,0 +1,7 @@
+#!/usr/local/bin/escript
+-module(half).
+-export([main/1]).
+
+main([Input|_]) ->
+	Output = list_to_float(Input) / 2,
+	io:format("~p~n", [Output]).
