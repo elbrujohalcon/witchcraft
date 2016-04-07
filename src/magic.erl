@@ -1,3 +1,4 @@
+%% @doc A module used to test some erlang magic for inaka's blog
 -module(magic).
 
 -export([whats_in/1, say/1]).
