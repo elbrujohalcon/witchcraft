@@ -1,4 +1,4 @@
-%% @doc this comment is really really really too long, you should reject this PR, @elvisci. Please, oh please. Reject it, I tell you.
+%% @doc A module used to test some erlang magic for inaka's blog
 -module(magic).
 
 -export([whats_in/1, say/1]).
