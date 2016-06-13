@@ -1,3 +1,4 @@
+%% COMMON ELVISCI COMPLAIN ABOUT THIS VERY VERY EXTREMELY INSANELY LONG LONG LINE THAT I JUST WROTE FOR YOU, OK?
 -module(myself).
 
 -export([my_code/0, say/1, say_fun/0, add_say/2, my_bin/0]).
