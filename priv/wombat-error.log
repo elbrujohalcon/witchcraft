@@ -1,0 +1,6 @@
+{{1476,802835,256794},experiment,started}.
+{{1476,802835,257552},set_as_global,started}.
+{{1476,802835,260182},set_as_global,completed}.
+{{1476,802835,260641},alarm_rasied,started}.
+{{1476,803192,93914},alarm_rasied,{failed,timeout}}.
+{{1476,803192,95988},experiment,{failed,{throw,{error,alarm_rasied,timeout}}}}.
