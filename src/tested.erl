@@ -1,3 +1,4 @@
+% @doc not sure what this is
 -module(tested).
 -author('elbrujohalcon@gmail.com').
 
@@ -19,7 +20,7 @@ can_handle(_) -> no.
 get_line_numbers() -> get_line_numbers(io:get_line("")).
 get_line_numbers(eof) -> get_line_numbers({error, premature_eof});
 get_line_numbers({error, ErrorDescription}) ->
-  io:format(standard_error, "Couldn't read: ~p~n", [ErrorDescription]),
+  io:format(standard_error, "I Couldn't read: ~p~n", [ErrorDescription]),
   erlang:halt(1);
 get_line_numbers(Line) ->
   [list_to_integer(T) || T <- string:tokens(Line, [$\s, $\n])].
