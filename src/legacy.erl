@@ -64,7 +64,7 @@ a_function_in_a_huge_module(That, Doesnt, Use, T) ->
 
 
 %%% EXTRACT AND OVERRIDE CALL
-a_fucntion(With) ->
+a_function(With) ->
     Stuff = that:calls(another, function, in),
     A = strange:module(With, Stuff),
     then:does(something, with, A).
