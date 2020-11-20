@@ -38,16 +38,15 @@ kill_actor(Name) ->
   exit(whereis(list_to_atom(Name)), kill).
 
 actor_loop(Name) ->
-  random:seed(),
   internal_actor_loop(Name).
 
 internal_actor_loop(Name) ->
   receive
     {Msg, From} ->
       NextActor = next_actor(Name),
-      timer:sleep(random:uniform(10) * 250),
+      timer:sleep(rand:uniform(10) * 250),
       send_msg(Name, NextActor, Msg),
-      timer:sleep(random:uniform(10) * 250),
+      timer:sleep(rand:uniform(10) * 250),
       reply(Name, From, random_answer()),
       internal_actor_loop(Name);
     _Msg ->
@@ -60,18 +59,18 @@ random_answer() ->
     , "checking..."
     , "give me a minute, please"
     ],
-  lists:nth(random:uniform(length(Answers)), Answers).
+  lists:nth(rand:uniform(length(Answers)), Answers).
 
 next_actor(Name) ->
   Actors = actors() -- [Name],
-  lists:nth(random:uniform(length(Actors)), Actors).
+  lists:nth(rand:uniform(length(Actors)), Actors).
 
 actors() -> ["Brujo", "Aki", "James", "Dave", "Juan"].
 
 send_msg(From, To, Msg) ->
-  et:phone_home(random:uniform(50), From, To, Msg, #{}),
+  et:phone_home(rand:uniform(50), From, To, Msg, #{}),
   list_to_atom(To) ! {Msg, From}.
 
 reply(From, To, Msg) ->
-  et:phone_home(50 + random:uniform(50), From, To, Msg, #{}),
+  et:phone_home(50 + rand:uniform(50), From, To, Msg, #{}),
   list_to_atom(To) ! Msg.
